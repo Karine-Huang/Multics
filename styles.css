@@ -8,7 +8,7 @@
   --warm: #f1b35f;
   --warm-pale: #f8d8a7;
   --green: #c7ff64;
-  
+
   --section-title-size: clamp(26px, 2.8vw, 40px);
   --section-title-leading: 1.08;
   --section-title-tracking: -0.035em;
@@ -1585,6 +1585,7 @@ h2 {
 }
 
 .line-full,
+.line-gamma,
 .line-ours {
   fill: none;
   stroke: #8b8e93;
@@ -1600,10 +1601,14 @@ h2 {
   stroke-width: 3;
 }
 
+.line-gamma { stroke: #7da8c8; }
+
 .point-full { fill: #8b8e93; }
+.point-gamma { fill: #7da8c8; }
 .point-ours { fill: var(--warm); }
 
 .point-full,
+.point-gamma,
 .point-ours {
   opacity: 0;
   transform: scale(0);
@@ -1620,9 +1625,14 @@ h2 {
 .chart .chart-value { opacity: 0; font-size: 14px; }
 .chart .text-ours { fill: var(--warm); }
 .chart .text-full { fill: #b4b7bd; }
+.chart .text-gamma { fill: #7da8c8; }
 
 .efficiency-charts.charts-visible .line-full {
   animation: chart-line-draw 1.35s 180ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.efficiency-charts.charts-visible .line-gamma {
+  animation: chart-line-draw 1.3s 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .efficiency-charts.charts-visible .line-ours {
@@ -1633,6 +1643,10 @@ h2 {
   animation: chart-point-in 420ms 1.34s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.efficiency-charts.charts-visible .point-gamma {
+  animation: chart-point-in 420ms 1.43s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 .efficiency-charts.charts-visible .point-ours {
   animation: chart-point-in 420ms 1.52s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -1641,6 +1655,7 @@ h2 {
   animation: chart-label-in 500ms 1.42s ease forwards;
 }
 
+.efficiency-charts.charts-visible .text-gamma { animation-delay: 1.52s; }
 .efficiency-charts.charts-visible .text-ours { animation-delay: 1.62s; }
 
 .efficiency-legend {
@@ -1666,6 +1681,8 @@ h2 {
 }
 .efficiency-legend .legend-ours { color: var(--warm-pale); }
 .efficiency-legend .legend-ours i { background: var(--warm); }
+.efficiency-legend .legend-gamma { color: #7da8c8; }
+.efficiency-legend .legend-gamma i { background: #7da8c8; }
 
 @keyframes chart-line-draw { to { stroke-dashoffset: 0; } }
 @keyframes chart-point-in { to { opacity: 1; transform: scale(1); } }
@@ -1724,9 +1741,10 @@ h2 {
 
 .citation-section {
   display: grid;
-  grid-template-columns: 0.75fr 1.25fr;
-  gap: 70px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  align-content: center;
   min-height: 670px;
 }
 
@@ -2531,7 +2549,7 @@ h2 {
 }
 
 .citation-section {
-  grid-template-columns: 0.65fr 1.35fr;
+  grid-template-columns: minmax(0, 1fr);
   min-height: 640px;
 }
 
@@ -3023,11 +3041,13 @@ h2 {
   }
 
   .line-full,
+  .line-gamma,
   .line-ours {
     stroke-dashoffset: 0;
   }
 
   .point-full,
+  .point-gamma,
   .point-ours,
   .chart text {
     opacity: 1;
@@ -3223,21 +3243,23 @@ h2 {
   box-shadow: 0 0 6px rgba(241, 179, 95, .6);
 }
 .camera-readout {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
-  flex-wrap: wrap;
   margin-top: 0;
   color: #9a9da2;
   font: 400 8px/1.6 "DM Mono", monospace;
 }
+.camera-readout > span { white-space: nowrap; }
 .camera-readout b {
   color: var(--paper);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
 }
 .camera-motion {
-  min-height: 16px;
+
+  min-height: 3.2em;
+  white-space: pre-line;
   margin: 4px 0 0;
   color: var(--warm-pale);
   font: 400 8px/1.6 "DM Mono", monospace;

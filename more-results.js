@@ -113,7 +113,7 @@
         if (targets.length) tile.weaponSwitch.setAttribute('aria-label', `Weapon switch active: ${targets.join(' / ')}`);
         tile.yaw.textContent = `${yaw.toFixed(1)}°`;
         tile.pitch.textContent = `${pitch.toFixed(1)}°`;
-        tile.motion.textContent = `Δ yaw ${dx >= 0 ? '+' : ''}${dx.toFixed(1)}° · pitch ${dy >= 0 ? '+' : ''}${dy.toFixed(1)}°`;
+        tile.motion.textContent = `Δ yaw ${dx >= 0 ? '+' : ''}${dx.toFixed(1)}°\npitch ${dy >= 0 ? '+' : ''}${dy.toFixed(1)}°`;
         const x = Math.max(-14, Math.min(14, -dx * 3));
         const y = Math.max(-14, Math.min(14, dy * 3));
         tile.dot.style.transform = `translate(${x}px, ${y}px)`;
