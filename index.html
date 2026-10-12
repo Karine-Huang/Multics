@@ -9,7 +9,7 @@
     />
     <title>Multics — Multi-Player World Model</title>
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
-    <link rel="stylesheet" href="./styles.css?v=82" />
+    <link rel="stylesheet" href="./styles.css?v=84" />
   </head>
   <body class="hero-intro-pending">
     <header class="nav">
@@ -142,11 +142,10 @@
           </div>
           <p class="feature-tldr">
             <strong>TL;DR</strong>
-            Multics uses group-level representations to aggregate information from
-            locally relevant players, while global tokens support communication
-            across groups. This reduces interference between unrelated events.
-            A model trained with four players also supports six, eight, and ten
-            players without retraining.
+            Multics enables robust multi-player video generation with cross-player
+            consistency, player-specific controllability, reducing interference
+            between unrelated events and scales from
+            4-player training to 10-player inference without retraining.
           </p>
         </div>
 
@@ -272,7 +271,7 @@
             <div>
               <p class="challenge-label">Fully connected communication</p>
               <h3>More players. Quadratic cost.</h3>
-              <p>Every player exchanges information with every other player. Communication compute grows quadratically with the player count.</p>
+              <p>All-to-all communication makes computation grow quadratically with the player count.</p>
             </div>
           </article>
           <article class="communication-challenge">
@@ -288,7 +287,7 @@
             <div>
               <p class="challenge-label">Centralized communication</p>
               <h3>Unrelated events compete.</h3>
-              <p>All players route through shared global tokens. Unrelated events compete for communication capacity, causing information mixing and cross-event interference.</p>
+              <p>Unrelated events compete for shared token capacity, causing cross-event interference.</p>
             </div>
           </article>
             </div>
@@ -299,8 +298,8 @@
           <article class="feature-story-block feature-features">
             <header><p class="eyebrow warm">Our advantages</p></header>
             <div class="feature-story-list">
-              <div><strong>Relevant context. Less interference.</strong><p>Group tokens organize local context; global tokens coordinate across groups, limiting direct mixing between unrelated events. This supports robust multi-player video generation with cross-player consistency, player-specific controllability, and interference robustness.</p></div>
-              <div><strong>More players. No retraining.</strong><p>One 4-player model generalizes to 6, 8, and 10 players, with less self-attention computation than fully connected communication.</p></div>
+              <div><strong>Hierarchical structure. Robust generation.</strong><p>Cross-player consistency, player-specific controllability, and interference robustness.</p></div>
+              <div><strong>More players. No retraining.</strong><p>Supports 6, 8, and 10 players without retraining, with lower self-attention cost.</p></div>
             </div>
           </article>
         </div>
