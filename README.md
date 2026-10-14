@@ -21,7 +21,7 @@ Open `http://localhost:8000`.
 3. The project site will be available at `https://<username>.github.io/Multics/`.
 
 All asset URLs are relative, so the page supports the `/Multics/` prefix.
-The arXiv link in `index.html` is currently empty; update it when its URL is available. Code and Model links point to the TencentARC repositories.
+The arXiv link points to https://arxiv.org/abs/2610.17201. Code and Model links point to the TencentARC repositories.
 
 [GitHub Pages publishing documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
